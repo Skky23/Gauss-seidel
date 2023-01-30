@@ -1,0 +1,26 @@
+import numpy as np
+
+matrix = np.array( [[9, 2, -1],  
+              [7, 8, 5],  
+              [3, 4, -10]])
+
+matrix1 = np.array( [[9, 2, -1],  
+              [7, 8, 10]])
+
+
+
+def diagEstDom(matriz):
+  dominante = True
+  filas = np.size(matriz, 0)
+  columnas = (np.size(matriz, 1))-1
+  for x in range(filas):
+    matrizAux = matriz[x]
+    matrizAux = np.delete(matrizAux, x)
+
+    for y in range(columnas):
+      if abs(matriz[x,x]) < abs(matrizAux[y]):
+        dominante=False
+        break
+  return dominante
+
+print(diagEstDom(matrix1))
